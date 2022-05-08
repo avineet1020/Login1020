@@ -1,0 +1,105 @@
+<nav class="navbar navbar-light bg-primary">
+  <div class="container-fluid">
+    <h2> Eayurveda App</h2>
+    <div class="d-flex">
+      <button type="button" (click)="clickAddBtn()" class="btn btn-success" data-bs-toggle="modal"
+        data-bs-target="#exampleModal">ADD YOUR DETAILS </button>
+        <button style="background-color:red; border-color:blue; color:white" routerLink="/login" type="button"  class="btn btn danger mx-3">Log Out</button>
+    </div>
+  </div>
+</nav>
+<!--JUMBOTRON-->
+<div class="jumbotron">
+  <h1 class="display-4">What is E-Ayurveda App?</h1>
+  <p class="lead"> Ayurvedic Solution is a recommendation system that offers online consultation with experts. This will
+    help them undergo Ayurveda treatment or understand how this treatment works. It will take some information about the
+    users to undergo this treatment. However, the submission of these details doesn't force users to undergo ayurvedic
+    treatment. Here the Admin should validate authencity of Doctors, Health coach and Nutritionist also manage their
+    data before including them in the portal. User should be able to view Doctor profiles. User should be able to view
+    FAQs an ayurvedic treatment. User should be able to view success stories of few patients. User should be able to
+    view all ayurvedic solutions for different health issues. The solution should include cause, symptomps, remidies,
+    do's and dont's and FAQS. Patient should get a Remainder for taking the medicines on time Patient should be able to
+    create their health profile which can be used by the Doctors during e-counselling.Patient should be able to
+    participate in a video consultation with health coach to understand his/her health issue(s). Patient should be able
+    to schedule an appointment with a recommeded doctor. Patient can have a regular interaction with nutrionist.</p>
+  <hr class="my-4">
+</div>
+<!-- Table Shown Here-->
+
+<table class="table mt-4">
+  <thead>
+    <tr>
+      <th scope="col">Nutritionist Id</th>
+      <th scope="col">Name</th>
+      <th scope="col">Email</th>
+      <th scope="col">Mobile</th>
+      <th scope="col">Address</th>
+
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let data of allEayurvedaData">
+      <td>{{ data.id }}</td>
+      <td>{{ data.name }}</td>
+      <td>{{ data.email }}</td>
+      <td>{{ data.mobile }}</td>
+      <td>{{ data.address}}</td>
+
+
+      <td>
+        <button (click)="onEditDoctor(data)" class="btn btn-info" class="btn btn-success" data-bs-toggle="modal"
+          data-bs-target="#exampleModal">Edit</button>&nbsp;
+        <button style="background-color:red; border-color:blue; color:white" (click)="deleteDoctor(data)" class="btn btn-danger">Delete</button>
+
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Add Your Details</h5>
+        <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form [formGroup]="formValue">
+          <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">Name</label>
+            <input type="text" formControlName="name" class="form-control" placeholder="User Name"
+              id="exampleInputEmail1" aria-describedby="emailHelp">
+          </div>
+
+          <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label">Email Id</label>
+            <input type="text" formControlName="email" class="form-control" placeholder="abcd@gmail.com"
+              id="exampleInputPassword1">
+          </div>
+
+          <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label">Mobile</label>
+            <input type="text" formControlName="mobile" class="form-control" placeholder="10digits"
+              id="exampleInputPassword1">
+          </div>
+
+          <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label">Address</label>
+            <input type="text" formControlName="address" class="form-control" placeholder="Permanent Address"
+              id="exampleInputPassword1">
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button *ngIf="showAddBtn" type="button" class="btn btn-primary" (click)="addEayurveda()">Add Details</button>
+        <button *ngIf="showUpdateBtn" type="button" class="btn btn-primary" (click)="onupdateDoctor()">Update
+          Details</button>
+      </div>
+    </div>
+  </div>
+</div>
