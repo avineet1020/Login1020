@@ -1,0 +1,45 @@
+{
+  "posts": [
+    {
+      "id": 4,
+      "name": "DR AVINEET",
+      "email": "PGI@gmail.com",
+      "mobile": "08872269665",
+      "address": "MALDIVES"
+    },
+    {
+      "id": 5,
+      "name": "DR KshitiZ ",
+      "email": "41@gmail.com",
+      "mobile": "4141414141414",
+      "address": "41 B NEAR GURUDWARA VOLLYBALL GROUND "
+    }
+  ],
+  "signup": [
+    {
+      "name": "Avineet Vashisht",
+      "email": "avineet@gmail.com",
+      "mobile": "7018423456",
+      "password": "Intern",
+      "id": 1
+    },
+    {
+      "name": "Anmol",
+      "email": "anmol@gmail.com",
+      "mobile": "4537823291",
+      "password": "Anmol",
+      "id": 2
+    },
+    {
+      "name": "Gurkeerat",
+      "email": "gurkeerat@gmail.com",
+      "mobile": "9832738289",
+      "password": "Gsingh",
+      "id": 3
+    }
+  ],
+  "comments": [],
+  "profile": {
+    "name": "typicode"
+  }
+}
